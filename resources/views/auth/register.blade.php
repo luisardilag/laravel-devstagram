@@ -46,7 +46,8 @@
                         Username
                     </label>
                     <input id="username" type="text" name="username" placeholder="Tu nombre de usuario"
-                        class="border p-2 w-full rounded-lg">
+                        class="border p-2 w-full rounded-lg @error('name') border-red-500 @enderror"
+                        value="{{ old('username') }}">
 
                     @error('username')
                         {{-- El mensaje de error se muestra en un div --}}
@@ -61,7 +62,8 @@
                         Email
                     </label>
                     <input id="email" type="email" name="email" placeholder="Tu email"
-                        class="border p-2 w-full rounded-lg">
+                        class="border p-2 w-full rounded-lg @error('email') border-red-500 @enderror"
+                        value="{{ old('email') }}">
 
                     @error('email')
                         {{-- El mensaje de error se muestra en un div --}}
@@ -76,7 +78,8 @@
                         Password
                     </label>
                     <input id="password" type="password" name="password" placeholder="Tu password"
-                        class="border p-2 w-full rounded-lg">
+                        class="border p-2 w-full rounded-lg @error('password') border-red-500 @enderror"
+                        value="{{ old('password') }}">
 
                     @error('password')
                         {{-- El mensaje de error se muestra en un div --}}
