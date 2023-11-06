@@ -22,12 +22,30 @@
                 </h1>
             </a>
 
-            <nav class="flex gap-2 items-center">
-                <a class="font-bold uppercase text-gray-600 text-sm" href="#">Login</a>
-                <a href="{{ route('register') }}" class="font-bold uppercase text-gray-600 text-sm">
-                    Crear Cuenta
-                </a>
-            </nav>
+            @auth
+                <nav class="flex gap-2 items-center">
+                    <a href="{{ route('login') }}" class="font-bold text-gray-600 text-sm">
+                        Hola: <span class="font-black">{{ auth()->user()->name }}</span>
+                    </a>
+
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="font-bold uppercase text-gray-600 text-sm">
+                            Cerrar Sesión
+                        </button>
+                    </form>
+                </nav>
+            @endauth
+
+            @guest
+                <nav class="flex gap-2 items-center">
+                    <a href="{{ route('login') }}" class="font-bold uppercase text-gray-600 text-sm">Login</a>
+                    <a href="{{ route('register') }}" class="font-bold uppercase text-gray-600 text-sm">
+                        Crear Cuenta
+                    </a>
+                </nav>
+            @endguest
+
         </div>
     </header>
 
