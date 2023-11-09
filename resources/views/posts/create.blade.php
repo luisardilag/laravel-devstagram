@@ -8,7 +8,10 @@
 @section('contenido')
     <div class="md:flex md:items-center">
         <div class="md:w-1/2 px-10">
-            Imagen aqui
+
+            <form action="{{ route('imagenes.store') }}" id="dropzone"
+                class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
+            </form>
 
         </div>
 
@@ -45,7 +48,7 @@
                     {{-- El old() es para que se mantenga el valor que se ingreso en el input --}}
                     <textarea id="descripcion" name="descripcion" placeholder="Descripción de la publicación"
                         class="border p-2 w-full rounded-lg @error('descripcion') border-red-500 @enderror">
-                      {{ old('descripcion') }}"
+                      {{ old('descripcion') }}
                     </textarea>
 
                     @error('descripcion')
