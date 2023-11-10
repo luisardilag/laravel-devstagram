@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    @stack('styles')
     <title>DevStagram - @yield('titulo')</title>
 
     {{-- Estilos CSS globales --}}
