@@ -23,7 +23,7 @@
 
         <div class="md:w-1/2 p-10 bg-white rounded-lg shadown-xl mt-10 md:mt-0">
 
-            <form action="{{ route('register') }}" method="POST" novalidate>
+            <form action="{{ route('posts.store') }}" method="POST" novalidate>
 
                 {{-- Cuando aparece el error "419 Page Expired" es porque no se ha enviado el token de seguridad --}}
                 @csrf
@@ -61,6 +61,23 @@
                         {{-- El mensaje de error se muestra en un div --}}
                         <div class="text-red-500 text-xs">{{ $message }}</div>
                     @enderror
+                </div>
+
+                {{-- input para imagen --}}
+                <div class="mb-5">
+                    {{-- El old() es para que se mantenga el valor que se ingreso en el input --}}
+                    <input type="hidden" name="imagen" value="{{ old('imagen') }}">
+
+                    @error('imagen')
+                        {{-- El mensaje de error se muestra en un div --}}
+                        <div class="text-red-500 text-xs">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                {{-- Submit --}}
+                <div>
+                    <input type="submit" value="Crear Publicación"
+                        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">
                 </div>
 
             </form>
