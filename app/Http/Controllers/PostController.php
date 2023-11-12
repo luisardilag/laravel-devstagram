@@ -17,8 +17,13 @@ class PostController extends Controller
 
     public function index(User $user)
     {
+
+        $posts = Post::where('user_id', $user->id)->get();
+
+
         return view('dashboard', [
             'user' => $user,
+            'posts' => $posts,
         ]);
     }
 
@@ -55,11 +60,11 @@ class PostController extends Controller
         // $post->save();
 
         /* EJM3: Como guardar los datos en la BD de Post */
-        $request->user()->post()->create([
+        $request->user()->posts()->create([
             'titulo' => $request->titulo,
             'descripcion' => $request->descripcion,
             'imagen' => $request->imagen,
-            'user_id' => auth()->id(),
+            'user_id' => auth()->user()->id,
         ]);
 
         return redirect()->route('posts.index', auth()->user()->username);
