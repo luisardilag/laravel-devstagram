@@ -22,4 +22,10 @@ class Post extends Model
     {
         return $this->belongsTo(User::class)->select(['name', 'username']);
     }
+
+    /* Un Post tiene muchos comentarios */
+    public function comentarios()
+    {
+        return $this->hasMany(Comentario::class)->orderBy('created_at', 'desc');
+    }
 }

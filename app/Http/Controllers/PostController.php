@@ -78,4 +78,10 @@ class PostController extends Controller
             'user' => $user,
         ]);
     }
+
+
+    public function destroy(Post $post)
+    {
+        dd('Eliminar', $post->id);
+    }
 }

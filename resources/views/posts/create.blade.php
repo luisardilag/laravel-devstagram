@@ -47,7 +47,7 @@
 
                 {{-- Descripción --}}
                 <div class="mb-5">
-                    <label for="description" class="mb-2 capitalized block text-gray-500 font-bold">
+                    <label for="descripcion" class="mb-2 capitalized block text-gray-500 font-bold">
                         Descripción
                     </label>
 
