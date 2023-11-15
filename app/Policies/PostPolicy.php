@@ -14,8 +14,6 @@ class PostPolicy
      */
     public function delete(User $user, Post $post): bool
     {
-        return $user->id === $post->user_id
-            ? Response::allow()
-            : Response::deny('No puedes eliminar este post');
+        return $user->id === $post->user_id;
     }
 }
